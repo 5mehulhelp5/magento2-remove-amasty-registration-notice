@@ -2,7 +2,7 @@ The README.md file content is generated automatically, see [Magento module READM
 
 # Hryvinskyi_RemoveAmastyRegistrationNotice module
 
-This module removing amasty registration notice in admin panel
+This module removes registration notifications in the admin panel
 
 ## Installation details
 
