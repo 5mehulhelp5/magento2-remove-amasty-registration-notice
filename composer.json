@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This module removing amasty registration notice in admin panel",
   "type": "magento2-module",
+  "license": "MIT",
   "require": {
     "magento/framework": "*",
     "amasty/base": "*"
