@@ -1,31 +1,55 @@
-The README.md file content is generated automatically, see [Magento module README.md](https://github.com/magento/devdocs/wiki/Magento-module-README.md) for more information.
+# Magento 2 Remove Amasty Registration Notice
 
-# Hryvinskyi_RemoveAmastyRegistrationNotice module
+This module removes the Amasty extension registration notices that appear in the Magento admin panel. It provides a cleaner admin experience by eliminating these repetitive notifications.
 
-This module removes registration notifications in the admin panel
+## Features
 
-## Installation details
+- Removes Amasty registration notices from the admin panel
+- No configuration required - works automatically after installation
+- Lightweight solution with no impact on performance
 
-For information about a module installation in Magento 2, see [Enable or disable modules](https://devdocs.magento.com/guides/v2.4/install-gde/install/cli/install-cli-subcommands-enable.html).
+![demonstration.png](docs/images/demonstration.png)
 
-## Extensibility
+## Requirements
 
-Extension developers can interact with the Hryvinskyi_RemoveAmastyRegistrationNotice module. For more information about the Magento extension mechanism, see [Magento plug-ins](https://devdocs.magento.com/guides/v2.4/extension-dev-guide/plugins.html).
+- Magento 2.4.4 or higher
+- PHP 8.1 or higher
+- Amasty Base module
 
-[The Magento dependency injection mechanism](https://devdocs.magento.com/guides/v2.4/extension-dev-guide/depend-inj.html) enables you to override the functionality of the Hryvinskyi_RemoveAmastyRegistrationNotice module.
+## Installation
 
-### Layouts
+### Composer (recommended)
 
-The module introduces layout handles in the `view/adminhtml/layout` directory.
+```bash
+composer require hryvinskyi/magento2-remove-amasty-registration-notice
+bin/magento module:enable Hryvinskyi_RemoveAmastyRegistrationNotice
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+bin/magento setup:static-content:deploy
+```
 
-For more information about a layout in Magento 2, see the [Layout documentation](https://devdocs.magento.com/guides/v2.4/frontend-dev-guide/layouts/layout-overview.html).
+### Manual Installation
 
-### UI components
+1. Download the module and upload it to `app/code/Hryvinskyi/RemoveAmastyRegistrationNotice`
+2. Enable the module and update the database:
 
-You can extend product and category updates using the UI components located in the `view/adminhtml/ui_component` directory.
+```bash
+bin/magento module:enable Hryvinskyi_RemoveAmastyRegistrationNotice
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+bin/magento setup:static-content:deploy
+```
 
-For information about a UI component in Magento 2, see [Overview of UI components](https://devdocs.magento.com/guides/v2.4/ui_comp_guide/bk-ui_comps.html).
+## How It Works
 
-## Additional information
+This module overrides the `getMessage()` method in Amasty's license registration view model to return `null` instead of registration messages, effectively removing the notice from admin panels.
 
-For information about significant changes in patch releases, see [Release information](https://devdocs.magento.com/guides/v2.4/release-notes/bk-release-notes.html).
+## License
+
+MIT
+
+## Author
+
+Volodymyr Hryvinskyi  
+Email: volodymyr@hryvinskyi.com  
+GitHub: https://github.com/hryvinskyi
